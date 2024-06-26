@@ -17,5 +17,5 @@ rand = "0.8.5"
 
 [dependencies]
 anyhow = "1.0.75"
-embree4-sys = { git = "https://github.com/TheMartianObserver/embree4-sys" }
+embree4-sys = { path = "embree4-sys" }
 rayon = "1.8.0"
