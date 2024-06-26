@@ -105,7 +105,7 @@ impl<'a> Scene<'a> {
     /// let scene = Scene::try_new(&device, options).unwrap();
     /// let scene = scene.commit().unwrap();
     /// ```
-    pub fn commit(&self) -> Result<CommittedScene> {
+    pub fn commit(self) -> Result<CommittedScene<'a>> {
         unsafe {
             embree4_sys::rtcCommitScene(self.handle);
         }
@@ -132,7 +132,7 @@ pub struct SceneOptions {
 }
 
 pub struct CommittedScene<'a> {
-    scene: &'a Scene<'a>,
+    scene: Scene<'a>,
 }
 
 unsafe impl<'a> Sync for CommittedScene<'a> {}
