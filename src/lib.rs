@@ -24,6 +24,7 @@ use anyhow::{bail, Result};
 
 pub use device::*;
 pub use scene::*;
+pub use embree4_sys::{RTCBuildQuality, RTCRay, RTCSceneFlags};
 
 fn device_error_raw(device: embree4_sys::RTCDevice) -> Option<embree4_sys::RTCError> {
     let err = unsafe { embree4_sys::rtcGetDeviceError(device) };
